@@ -21,7 +21,7 @@
 # pthread_mutex_lock
 
 - permet de lock un mutex pendent sont utilisation pour que les autre thread ny est pas acces.
-	les thread demandant l'acces vont attenfre un unlock si le mutex est deja utiliser
+	les thread demandant l'acces vont attendre un unlock (et ne rien faire d'autre) si le mutex est deja utiliser
 
 # pthread_mutex_unlock
 

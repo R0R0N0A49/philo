@@ -8,6 +8,6 @@ pthread_mutex_init     -> permet de cree une variable securiser ou un seul threa
 
 pthread_mutex_destroy  -> permet de destroy un mutex (en fin de programme)
 
-pthread_mutex_lock     -> permet de lock un mutex pendent sont utilisation pour que les autre thread ny est pas acces.
+pthread_mutex_lock     -> permet de lock un mutex pendent sont utilisation pour que les autre thread ny est pas acces. les thread demandant l'acces vont attenfre un unlock si le mutex est deja utiliser
 
 pthread_mutex_unlock   -> permet de unlock un mutex pour dire que la fonction ne l'utilise plus et qu'un qutre thread peut y avoir ecces.

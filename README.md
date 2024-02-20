@@ -25,4 +25,4 @@
 
 # pthread_mutex_unlock
 
-- permet de unlock un mutex pour dire que la fonction ne l'utilise plus et qu'un qutre thread peut y avoir ecces.
+- permet de unlock un mutex pour dire que la fonction ne l'utilise plus et qu'un autre thread peut y avoir acces.

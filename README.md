@@ -4,7 +4,7 @@
 
 # pthread_detach
 
-- permet de dire au thread qui doit attendre appres avoir fini
+- permet de dire au thread qui doit attendre apres avoir fini
 
 # pthread_join
 

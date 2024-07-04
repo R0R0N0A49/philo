@@ -4,11 +4,11 @@
 
 # pthread_detach
 
-- permet de dire au thread aui doit attendre appres avoir fini
+- permet de dire au thread qui doit attendre apres avoir fini
 
 # pthread_join
 
-- permat de dire aux thread de revenir dans la fonction principal quand il a terminer
+- permet de dire aux thread de revenir dans la fonction principal quand il a terminer
 
 # pthread_mutex_init
 

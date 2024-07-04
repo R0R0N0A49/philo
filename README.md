@@ -8,7 +8,7 @@
 
 # pthread_join
 
-- permat de dire aux thread de revenir dans la fonction principal quand il a terminer
+- permet de dire aux thread de revenir dans la fonction principal quand il a terminer
 
 # pthread_mutex_init
 

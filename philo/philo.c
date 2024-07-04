@@ -68,8 +68,6 @@ int	init_struct(t_philo *src, char **argv)
 
 int	main(int argc, char **argv)
 {
-	
-
 	if (parsing(argc, &argv[1]))
 		return (1);
 	if (init_struct(arg, &argv[1]))

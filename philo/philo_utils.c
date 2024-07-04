@@ -58,6 +58,12 @@ int	ft_atoi(const char *s1)
 
 int ft_string_is_num(char *src)
 {
-    (void)src;
-    return (0);
+    int	i;
+
+	i = 0;
+	while (src[i] >= '0' && src[i] <= '9')
+		i++;
+	if (!src[i])
+		return (0);
+    return (1);
 }

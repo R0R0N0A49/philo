@@ -12,13 +12,13 @@
 
 #include "philo.h"
 
-static void	choice_msg(const int i, const char c)
+static void	choice_msg(const int i, const char *c)
 {
     if (i == 0)
         printf("to less or more argument\n");
     if (i == 1)
     {
-        printf("\'%c\' is no't a number\n", c);
+        printf("\'%s\' is not a number\n", c);
     }
     if (i == 2)
         printf("values must be greater than 0\n");
@@ -32,7 +32,7 @@ static void ft_free(void *src, void **tab)
         ft_free_tab(tab);
 }
 
-void    print_and_free(const int i, const char c, void *src, void **tab)
+void    print_and_free(const int i, const char *c, void *src, void **tab)
 {
     choice_msg(i, c);
     ft_free(src, tab);

@@ -1,5 +1,5 @@
 NAME = philo
-SRCS = philo.c parsing.c print_error.c
+SRCS = philo.c parsing.c printf_error.c philo_utils.c
 OBJS=$(SRCS:.c=.o)
 RM=rm -rf
 CC= cc

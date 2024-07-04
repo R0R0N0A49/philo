@@ -12,33 +12,6 @@
 
 #include "philo.h"
 
-int	ft_atoi(const char *s1)
-{
-	int	i;
-	int	y;
-	int	rsl;
-
-	i = 0;
-	y = 1;
-	rsl = 0;
-	if (!s1[i])
-		return (rsl);
-	while (s1[i] == 32 || (s1[i] >= '\t' && s1[i] <= '\r'))
-		i++;
-	if (s1[i] == '-' || s1[i] == '+')
-	{
-		if (s1[i] == '-')
-			y = -1;
-		i++;
-	}
-	while (s1[i] >= '0' && s1[i] <= '9')
-	{
-		rsl = rsl * 10 + (s1[i] - '0');
-		i++;
-	}
-	return (rsl * y);
-}
-
 int	ft_number(char **src)
 {
 	int	i;

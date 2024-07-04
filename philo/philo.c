@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:21:16 by trebours          #+#    #+#             */
-/*   Updated: 2024/02/16 13:02:23 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:03:28 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,24 +24,24 @@ void	*test_mudex(void *arg)
 	return ("fin du thread\n");
 }
 
-void	philo(t_philo **src, char **argv)
+void	philo(t_philo *src, char **argv)
 {
-	pthread_t	test[ft_atoi(argv[0])];
+	// pthread_t	test[ft_atoi(argv[0])];
 	int			t;
 
 	t = 0;
 	while (t < ft_atoi(argv[0]))
 	{
-		printf("%d\n", src[1]->nmb_philo);
-		pthread_create(&test[t], NULL, test_mudex, src[t]);
+		printf("%d\n", src->nmb_philo);
+		// pthread_create(&test[t], NULL, test_mudex, src);
 		t++;
 	}
 	t = 0;
-	while (t < ft_atoi(argv[0]))
-	{
-		pthread_join(test[t], NULL);
-		t++;
-	}
+	// while (t < ft_atoi(argv[0]))
+	// {
+		// pthread_join(test[t], NULL);
+		// t++;
+	// }
 }
 
 int	init_struct(t_philo *src, char **argv)
@@ -68,10 +68,12 @@ int	init_struct(t_philo *src, char **argv)
 
 int	main(int argc, char **argv)
 {
+	t_philo	args;
+
 	if (parsing(argc, &argv[1]))
 		return (1);
-	if (init_struct(arg, &argv[1]))
+	if (init_struct(&args, &argv[1]))
 		return (1);
-	philo(&arg, &argv[1]);
+	philo(&args, &argv[1]);
 	return (0);
 }

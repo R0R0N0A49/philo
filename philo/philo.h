@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:21:56 by trebours          #+#    #+#             */
-/*   Updated: 2024/02/16 12:13:49 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/04 11:10:57 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,6 @@ int		ft_number(char **src);
 int		ft_atoi(const char *s1);
 int		parsing(int argc, char **argv);
 void	ft_printf_error_and_free(char *msg, void *src, void **tab);
+void    print_and_free(int i, void *src, void **tab);
 
 #endif

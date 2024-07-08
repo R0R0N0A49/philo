@@ -1,6 +1,6 @@
 # pthread_create
 
-- permat de cree un thread et de lancer une fonction en parallèle de la fonction principal
+- permet de cree un thread et de lancer une fonction en parallèle de la fonction principal
 
 # pthread_detach
 

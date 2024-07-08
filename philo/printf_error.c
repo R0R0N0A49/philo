@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 11:23:49 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/04 11:45:21 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/08 07:35:06 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,26 @@
 
 static void	choice_msg(const int i, const char *c)
 {
-    if (i == 0)
-        printf("to less or more argument\n");
-    if (i == 1)
-    {
-        printf("\'%s\' is not a number\n", c);
-    }
-    if (i == 2)
-        printf("values must be greater than 0\n");
+	if (i == 0)
+		printf("to less or more argument\n");
+	if (i == 1)
+	{
+		printf("\'%s\' is not a number\n", c);
+	}
+	if (i == 2)
+		printf("values must be greater than 0\n");
 }
 
-static void ft_free(void *src, void **tab)
+static void	ft_free(void *src, void **tab)
 {
-    if (src)
-        free(src);
-    if (tab && tab[0])
-        ft_free_tab(tab);
+	if (src)
+		free(src);
+	if (tab && tab[0])
+		ft_free_tab(tab);
 }
 
-void    print_and_free(const int i, const char *c, void *src, void **tab)
+void	print_and_free(const int i, const char *c, void *src, void **tab)
 {
-    choice_msg(i, c);
-    ft_free(src, tab);
+	choice_msg(i, c);
+	ft_free(src, tab);
 }

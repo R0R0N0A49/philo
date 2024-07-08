@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:21:16 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/04 15:34:04 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/08 07:47:27 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,17 @@ void	init_src(t_philo *src, char **argv)
 	src->time_to_die = ft_atoi(argv[2]);
 	src->time_to_eat = ft_atoi(argv[3]);
 	src->time_to_sleep = ft_atoi(argv[4]);
+	src->last_eat = 0;
 	if (argv[5])
 		src->nmb_of_eat = ft_atoi(argv[5]);
+	else
+		src->nmb_of_eat = 0;
 }
 
 int	init_struct(t_philo **src, char **argv)
 {
 	t_philo	*current;
-	int i;
+	int		i;
 
 	i = 0;
 	*src = ft_philonew(i);
@@ -43,6 +46,31 @@ int	init_struct(t_philo **src, char **argv)
 	return (0);
 }
 
+void	philo(t_philo *args)
+{
+	int				is_death;
+
+	if (!args)
+		return ;
+	is_death = 1;
+	printf("\033[1;39m\t\t\t The philo begins\n\033[1;m");
+	while (is_death)
+	{
+		if (is_eat(args, &is_death))
+			break ;
+		if (!is_death)
+			break ;
+		if (is_sleep(args, &is_death))
+			break ;
+		if (is_death < 10 && is_death > 0)
+			is_death++;
+		else
+			is_death = 0;
+	}
+	if (!is_death)
+		printf("\033[6;35m\t\t\tOne philo is dead\n\033[1;m");
+}
+
 int	main(int argc, char **argv)
 {
 	t_philo	*args;
@@ -52,6 +80,7 @@ int	main(int argc, char **argv)
 		return (1);
 	if (init_struct(&args, argv))
 		return (1);
+	philo(args);
 	ft_philoclear(&args, free);
 	return (0);
 }

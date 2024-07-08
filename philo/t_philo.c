@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:39:06 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/04 15:35:26 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/08 07:33:11 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ t_philo	*ft_philonew(int i)
 	new_arg = malloc(1 * sizeof(t_philo));
 	if (!new_arg)
 		return (NULL);
-	new_arg->index =  i;
+	new_arg->index = i;
 	new_arg->next = NULL;
 	return (new_arg);
 }
@@ -40,5 +40,3 @@ void	ft_philoclear(t_philo **list, void (*del)(void*))
 		ft_philoclear(&(*list)->next, del);
 	ft_philodelone(list, del);
 }
-
-

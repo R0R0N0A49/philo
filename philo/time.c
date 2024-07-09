@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 07:51:25 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/08 07:52:38 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/09 06:55:19 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,17 @@ int	verif_time_eat(t_philo *args)
 
 	gettimeofday(&time, NULL);
 	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	if (current_time - args->last_eat >= args->time_to_die)
+	if (current_time - args->last_eat >= args->time->time_to_die)
 		return (1);
 	return (0);
+}
+
+long get_time()
+{
+	struct timeval	time;
+	long			current_time;
+
+	gettimeofday(&time, NULL);
+	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
+	return (current_time);
 }

@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:39:06 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/08 07:33:11 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/09 04:54:16 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	ft_philodelone(t_philo **list, void (*del)(void*))
 {
 	if (!list || !del || !*list)
 		return ;
+	pthread_mutex_destroy(&list[0]->mutex);
 	del(*list);
 	*list = NULL;
 }

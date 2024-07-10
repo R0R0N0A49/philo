@@ -6,11 +6,29 @@
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 07:51:25 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/09 06:55:19 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/10 06:14:05 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
+
+long int	get_timestamp(long int start)
+{
+	long int	timestamp;
+
+	timestamp = get_time() - start;
+	return (timestamp);
+}
+
+int	ft_usleep(size_t milliseconds)
+{
+	size_t	start;
+
+	start = get_time();
+	while ((get_time() - start) < milliseconds)
+		usleep(500);
+	return (0);
+}
 
 void	define_last_eat(t_philo *args)
 {
@@ -34,7 +52,7 @@ int	verif_time_eat(t_philo *args)
 	return (0);
 }
 
-long get_time()
+long	get_time(void)
 {
 	struct timeval	time;
 	long			current_time;

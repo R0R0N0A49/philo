@@ -1,5 +1,6 @@
 NAME = philo
-SRCS = philo.c parsing.c print_and_error.c philo_utils.c t_philo.c time.c action.c
+SRCS =	philo.c parsing.c print_and_error.c philo_utils.c t_philo.c time.c action.c \
+ 		init_var.c verif_dead.c main.c
 OBJS=$(SRCS:.c=.o)
 RM=rm -rf
 CC= cc

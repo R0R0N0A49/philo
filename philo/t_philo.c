@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/04 14:39:06 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/09 04:54:16 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/10 06:54:06 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,7 @@ t_philo	*ft_philonew(int i)
 		return (NULL);
 	new_arg->index = i;
 	new_arg->next = NULL;
+	new_arg->forks = 1;
 	return (new_arg);
 }
 

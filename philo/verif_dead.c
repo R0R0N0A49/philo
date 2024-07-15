@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 06:38:19 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/10 06:39:27 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/10 09:15:16 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	verif_dead(t_philo *src)
 {
 	pthread_mutex_lock(&src->time->mutex);
-	if (src->time->is_dead == 1)
+	if (src->time->is_dead)
 	{
 		pthread_mutex_unlock(&src->time->mutex);
 		return (1);
@@ -29,11 +29,12 @@ int	verif_dead(t_philo *src)
 
 void	is_dead(t_philo *args)
 {
-	pthread_mutex_lock(&args->time->mutex);
-	if (!args->time->is_dead)
+	if (!verif_dead(args))
 	{
+		pthread_mutex_lock(&args->time->mutex);
 		args->time->is_dead = 1;
+		pthread_mutex_unlock(&args->time->mutex);
 		print_message(args, 0);
+		return ;
 	}
-	pthread_mutex_unlock(&args->time->mutex);
 }

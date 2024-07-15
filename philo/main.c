@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/10 06:41:13 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/10 06:49:40 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/10 08:32:08 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ int	main(int argc, char **argv)
 		return (1);
 	init_thread(args, ft_atoi(argv[1]));
 	pthread_mutex_destroy(&args->time->mutex);
+	pthread_mutex_destroy(&args->time->print);
 	free(args->time);
 	ft_philoclear(&args, free);
 	return (0);

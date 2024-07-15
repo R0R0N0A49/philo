@@ -12,6 +12,16 @@
 
 #include "philo.h"
 
+void	reset_forks(t_philo *src)
+{
+	pthread_mutex_lock(&src->current_forks);
+	src->forks = 1;
+	pthread_mutex_unlock(&src->current_forks);
+	pthread_mutex_lock(&src->next_forks->current_forks);
+	src->next_forks->forks = 1;
+	pthread_mutex_unlock(&src->next_forks->current_forks);
+}
+
 void	ft_free_tab(void **tab)
 {
 	int	i;

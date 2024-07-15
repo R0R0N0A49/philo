@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/07/08 07:53:22 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/10 06:13:39 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/15 05:10:04 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,7 @@ int	is_eat(t_philo *args)
 {
 	long	current_time;
 
-	if (verif_time_eat(args))
-		is_dead(args);
-	if (verif_dead(args))
+	if (check_philo_status(args, 0))
 		return (1);
 	define_last_eat(args);
 	print_message(args, 2);
@@ -26,13 +24,13 @@ int	is_eat(t_philo *args)
 	while (get_timestamp(args->time->time_of_start) - current_time
 		< args->time->time_to_eat)
 	{
-		usleep(500);
-		if (verif_time_eat(args))
-			is_dead(args);
-		if (verif_dead(args))
+		ft_usleep(50);
+		if (check_philo_status(args, 0))
 			return (1);
 	}
 	args->nmb_eat++;
+	if (check_philo_status(args, 0))
+		return (1);
 	return (0);
 }
 
@@ -40,20 +38,17 @@ int	is_sleep(t_philo *args)
 {
 	long	current_time;
 
-	if (verif_time_eat(args))
-		is_dead(args);
-	if (verif_dead(args))
-		return (1);
 	print_message(args, 3);
 	current_time = get_timestamp(args->time->time_of_start);
 	while (get_timestamp(args->time->time_of_start) - current_time
 		< args->time->time_to_sleep)
 	{
-		if (verif_time_eat(args))
-			is_dead(args);
-		if (verif_dead(args))
+		ft_usleep(50);
+		if (check_philo_status(args, 0))
 			return (1);
-		ft_usleep(5);
 	}
+	if (check_philo_status(args, 0))
+		return (1);
+	print_message(args, 4);
 	return (0);
 }

@@ -29,7 +29,7 @@ void	ft_philodelone(t_philo **list, void (*del)(void*))
 {
 	if (!list || !del || !*list)
 		return ;
-	pthread_mutex_destroy(&list[0]->mutex);
+	pthread_mutex_destroy(&list[0]->current_forks);
 	del(*list);
 	*list = NULL;
 }

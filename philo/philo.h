@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/13 13:21:56 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/10 06:52:59 by trebours         ###   ########.fr       */
+/*   Updated: 2024/07/15 05:07:10 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,10 +22,12 @@
 typedef struct s_time
 {
 	long			time_of_start;
+	int				nmb_of_philo;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
 	pthread_mutex_t	mutex;
+	pthread_mutex_t	print;
 	int				is_dead;
 	int				nmb_max_eat;
 }	t_time;
@@ -36,9 +38,9 @@ typedef struct s_philo
 	int				nmb_eat;
 	int				index;
 	long int		last_eat;
-	int 			forks;
-	struct s_philo	*first;
-	pthread_mutex_t	mutex;
+	int				forks;
+	struct s_philo	*next_forks;
+	pthread_mutex_t	current_forks;
 	struct s_philo	*next;
 }	t_philo;
 
@@ -65,5 +67,7 @@ void		init_src(t_philo *src, t_time *args);
 t_time		*init_time(char **argv);
 int			init_struct(t_philo **src, char **argv);
 void		*philo(void *src);
+void		reset_forks(t_philo *src);
+int			check_philo_status(t_philo *args, int i);
 
 #endif

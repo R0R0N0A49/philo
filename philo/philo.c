@@ -97,7 +97,7 @@ void	*philo(void *src)
 	if (args->index % 2 == 0 || (args->next == NULL && args->index % 2))
 	{
 		print_message(args, 4);
-		ft_usleep(1);
+		ft_usleep(50);
 	}
 	loop_philo(args);
 	wait_finish(args);

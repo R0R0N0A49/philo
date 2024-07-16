@@ -1,5 +1,0 @@
-une struct avec nmbfork et une variable qui change a chaque appel de fonction
-
-tableau de thread ? 
-tableau de fork ?
-

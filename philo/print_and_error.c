@@ -22,6 +22,8 @@ static void	choice_msg(const int i, const char *c)
 	}
 	if (i == 2)
 		printf("values must be greater than 0\n");
+	if (i == 3)
+		printf("values must be less than MAX_INT\n");
 }
 
 static void	ft_free(void *src, void **tab)

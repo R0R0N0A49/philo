@@ -71,7 +71,7 @@ int	ft_string_is_num(char *src)
 	int	i;
 
 	i = 0;
-	while (src[i] >= '0' && src[i] <= '9')
+	while ((src[i] >= '0' && src[i] <= '9'))
 		i++;
 	if (!src[i])
 		return (0);

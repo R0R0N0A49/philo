@@ -54,13 +54,15 @@ void	wait_finish(t_philo *src)
 {
 	pthread_mutex_lock(&src->time->mutex);
 	src->time->nmb_of_philo--;
-	pthread_mutex_unlock(&src->time->mutex);
 	while (src->time->nmb_of_philo)
 	{
+		pthread_mutex_unlock(&src->time->mutex);
 		if (check_philo_status(src, 0))
 			return ;
 		ft_usleep(3);
+		pthread_mutex_lock(&src->time->mutex);
 	}
+	pthread_mutex_unlock(&src->time->mutex);
 }
 
 void	*loop_philo(t_philo *args)

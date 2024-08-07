@@ -6,7 +6,7 @@
 /*   By: trebours <trebours@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/02/15 11:50:15 by trebours          #+#    #+#             */
-/*   Updated: 2024/07/04 11:45:06 by trebours         ###   ########.fr       */
+/*   Updated: 2024/08/02 16:13:43 by trebours         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ int	ft_number(char **src)
 
 unsigned int	ft_ulatoi(const char *s1)
 {
-	int	i;
+	int				i;
 	unsigned int	rsl;
 
 	i = 0;

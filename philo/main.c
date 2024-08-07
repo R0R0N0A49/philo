@@ -44,11 +44,6 @@ void	init_thread(t_philo *args, int n)
 {
 	pthread_t	*threads;
 
-	if (n == 1)
-	{
-		is_dead(args);
-		return ;
-	}
 	threads = malloc(n * sizeof(pthread_t));
 	if (!threads)
 		return ;

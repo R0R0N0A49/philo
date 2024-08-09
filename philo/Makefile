@@ -35,7 +35,7 @@ NO_COLORS : $(OBJS_NO_COLORS)
 	@$(CC) $(CFLAGS) -c $< -o $@ 
 clean:
 	@clear
-	@$(RM) $(OBJS)
+	@$(RM) $(OBJS) $(OBJS_NO_COLORS)
 	@echo ${BLUE}">------Files clean-------<\n"${WHITE}
 fclean: clean
 	@$(RM) $(NAME)

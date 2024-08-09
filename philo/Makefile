@@ -48,4 +48,4 @@ re: fclean all
 	@echo ${CYAN}">-------Name clean-------<\n"${WHITE}
 	@echo ${GREEN}">-Compilation successful-<"${WHITE}
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re NO_COLORS

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   time.c                                             :+:      :+:    :+:   */
+/*   data.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: trebours <trebours@student.1337.ma>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -47,7 +47,7 @@ int	verif_time_eat(t_philo *args)
 
 	gettimeofday(&time, NULL);
 	current_time = (time.tv_sec * 1000) + (time.tv_usec / 1000);
-	if (current_time - args->last_eat >= args->time->time_to_die)
+	if (current_time - args->last_eat >= args->data->time_to_die)
 		return (1);
 	return (0);
 }

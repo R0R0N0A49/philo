@@ -1,8 +1,8 @@
 NAME = philo
 SRCS =	philo.c parsing.c print_and_error.c philo_utils.c t_philo.c time.c action.c \
- 		init_var.c verif_dead.c main.c print_colors.c
+ 		init_var.c verif_status.c main.c print_colors.c
 SRCS_NO_COLORS = philo.c parsing.c print_and_error.c philo_utils.c t_philo.c time.c action.c \
-		init_var.c verif_dead.c main.c print_no_colors.c
+		init_var.c verif_status.c main.c print_no_colors.c
 OBJS=$(SRCS:.c=.o)
 OBJS_NO_COLORS=$(SRCS_NO_COLORS:.c=.o)
 RM=rm -rf

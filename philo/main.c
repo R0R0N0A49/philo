@@ -62,9 +62,10 @@ int	main(int argc, char **argv)
 	if (init_struct(&args, argv))
 		return (1);
 	init_thread(args, ft_atoi(argv[1]));
-	pthread_mutex_destroy(&args->time->mutex);
-	pthread_mutex_destroy(&args->time->print);
-	free(args->time);
+	pthread_mutex_destroy(&args->data->m_dead);
+	pthread_mutex_destroy(&args->data->print);
+	pthread_mutex_destroy(&args->data->eat);
+	free(args->data);
 	ft_philoclear(&args, free);
 	return (0);
 }

@@ -18,8 +18,8 @@ void	print_message(t_philo *src, int msg)
 	static int	y = 0;
 
 	i = get_time();
-	i -= src->time->time_of_start;
-	pthread_mutex_lock(&src->time->print);
+	i -= src->data->time_of_start;
+	pthread_mutex_lock(&src->data->print);
 	if (verif_dead(src) && !y)
 	{
 		printf("%ld %d died\n", i, src->index);
@@ -33,5 +33,5 @@ void	print_message(t_philo *src, int msg)
 		printf("%ld %d is sleeping\n", i, src->index);
 	else if (msg == 4)
 		printf("%ld %d is thinking\n", i, src->index);
-	pthread_mutex_unlock(&src->time->print);
+	pthread_mutex_unlock(&src->data->print);
 }

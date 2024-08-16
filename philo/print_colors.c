@@ -18,8 +18,8 @@ void	print_message(t_philo *src, int msg)
 	static int	y = 0;
 
 	i = get_time();
-	i -= src->time->time_of_start;
-	pthread_mutex_lock(&src->time->print);
+	i -= src->data->time_of_start;
+	pthread_mutex_lock(&src->data->print);
 	if (verif_dead(src) && !y)
 	{
 		printf("\033[1;34m%ld\033[1;0m \033[1;34m%d\033[1;m "
@@ -38,5 +38,5 @@ void	print_message(t_philo *src, int msg)
 	else if (msg == 4)
 		printf("\033[1;34m%ld\033[1;0m \033[1;34m%d\033[1;0m "
 			"\033[1;32m is thinking\n\033[1;m", i, src->index);
-	pthread_mutex_unlock(&src->time->print);
+	pthread_mutex_unlock(&src->data->print);
 }

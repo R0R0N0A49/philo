@@ -12,16 +12,6 @@
 
 #include "philo.h"
 
-int	check_philo_status(t_philo *args, int i)
-{
-	if (i || verif_time_eat(args) || verif_dead(args))
-	{
-		is_dead(args);
-		return (1);
-	}
-	return (0);
-}
-
 void	choise_fork(t_philo *src)
 {
 	int	i;
@@ -50,27 +40,12 @@ void	choise_fork(t_philo *src)
 	}
 }
 
-void	wait_finish(t_philo *src)
-{
-	pthread_mutex_lock(&src->time->mutex);
-	src->time->nmb_of_philo--;
-	while (src->time->nmb_of_philo)
-	{
-		pthread_mutex_unlock(&src->time->mutex);
-		if (check_philo_status(src, 0))
-			return ;
-		ft_usleep(3);
-		pthread_mutex_lock(&src->time->mutex);
-	}
-	pthread_mutex_unlock(&src->time->mutex);
-}
-
 void	*loop_philo(t_philo *args)
 {
 	int	i;
 
 	i = 0;
-	while (args->nmb_eat != args->time->nmb_max_eat)
+	while (verif_philo(args))
 	{
 		choise_fork(args);
 		if (check_philo_status(args, i))
@@ -79,8 +54,8 @@ void	*loop_philo(t_philo *args)
 		reset_forks(args);
 		if (check_philo_status(args, i))
 			return (NULL);
-		if (args->nmb_eat == args->time->nmb_max_eat)
-			print_message(args, 4);
+		if (!verif_philo(args) || i == -1)
+			break ;
 		else
 			i = is_sleep(args);
 		if (check_philo_status(args, i))
@@ -99,9 +74,8 @@ void	*philo(void *src)
 	if (args->index % 2 == 0 || (args->next == NULL && args->index % 2))
 	{
 		print_message(args, 4);
-		ft_usleep(50);
+		ft_usleep(5);
 	}
 	loop_philo(args);
-	wait_finish(args);
 	return (NULL);
 }

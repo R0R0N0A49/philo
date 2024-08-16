@@ -19,22 +19,24 @@
 # include <unistd.h>
 # include <sys/time.h>
 
-typedef struct s_time
+typedef struct s_data
 {
 	long			time_of_start;
 	int				nmb_of_philo;
 	int				time_to_die;
 	int				time_to_eat;
 	int				time_to_sleep;
-	pthread_mutex_t	mutex;
-	pthread_mutex_t	print;
-	int				is_dead;
 	int				nmb_max_eat;
-}	t_time;
+	int				is_dead;
+	int 			is_eat;
+	pthread_mutex_t	m_dead;
+	pthread_mutex_t	eat;
+	pthread_mutex_t	print;
+}	t_data;
 
 typedef struct s_philo
 {
-	t_time			*time;
+	t_data			*data;
 	int				nmb_eat;
 	int				index;
 	long int		last_eat;
@@ -63,11 +65,13 @@ int			verif_dead(t_philo *src);
 long int	get_timestamp(long int start);
 int			ft_usleep(size_t milliseconds);
 void		ft_free_tab(void **tab);
-void		init_src(t_philo *src, t_time *args);
-t_time		*init_time(char **argv);
+void		init_src(t_philo *src, t_data *args);
+t_data		*init_time(char **argv);
 int			init_struct(t_philo **src, char **argv);
 void		*philo(void *src);
 void		reset_forks(t_philo *src);
 int			check_philo_status(t_philo *args, int i);
+int			verif_philo(t_philo	*args);
+void		add_eat(t_philo *args);
 
 #endif

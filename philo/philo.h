@@ -28,7 +28,7 @@ typedef struct s_data
 	int				time_to_sleep;
 	int				nmb_max_eat;
 	int				is_dead;
-	int 			is_eat;
+	int				is_eat;
 	pthread_mutex_t	m_dead;
 	pthread_mutex_t	eat;
 	pthread_mutex_t	print;

@@ -41,7 +41,7 @@ void	is_dead(t_philo *args)
 
 int	check_philo_status(t_philo *args, int i)
 {
-	if (i > 0|| verif_time_eat(args) || verif_dead(args))
+	if (i > 0 || verif_time_eat(args) || verif_dead(args))
 	{
 		is_dead(args);
 		return (1);
@@ -51,7 +51,7 @@ int	check_philo_status(t_philo *args, int i)
 
 int	verif_philo(t_philo	*args)
 {
-	int i;
+	int	i;
 
 	i = 1;
 	pthread_mutex_lock(&args->data->eat);

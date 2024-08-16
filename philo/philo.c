@@ -19,10 +19,10 @@ void	choise_fork(t_philo *src)
 	i = 0;
 	while (i < 2)
 	{
-		if (check_philo_status(src, 0))
+		if (check_philo_status(src, 0) || !verif_philo(src))
 			return ;
 		pthread_mutex_lock(&src->current_forks);
-		if (src->forks)
+		if (src->forks && verif_philo(src))
 		{
 			print_message(src, 1);
 			src->forks = 0;
@@ -30,7 +30,7 @@ void	choise_fork(t_philo *src)
 		}
 		pthread_mutex_unlock(&src->current_forks);
 		pthread_mutex_lock(&src->next_forks->current_forks);
-		if (src->next_forks->forks)
+		if (src->next_forks->forks && verif_philo(src))
 		{
 			print_message(src, 1);
 			src->next_forks->forks = 0;
